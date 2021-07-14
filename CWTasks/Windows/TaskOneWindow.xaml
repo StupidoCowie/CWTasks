@@ -1,0 +1,27 @@
+﻿<Window x:Class="CWTasks.Windows.TaskOneWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CWTasks.Windows"
+        mc:Ignorable="d"
+        Title="Maskify" Height="460" Width="720"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button x:Name="ReturnToTaskWindow" Content="Back" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Height="30" 
+                Width="50" FontFamily="TimesNewRoman" FontSize="16" Click="ReturnToTaskWindow_Click"></Button>
+        <TextBlock x:Name="MainText" Text="Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it. Your task is to write a function maskify, which changes all but the last four characters into '#'."
+                   HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" FontFamily="TimesNewRoman" 
+                   FontSize="20" Height="120" Width="700"></TextBlock>
+        <TextBlock x:Name="InputText" Text="Type some unmasked text in the left textbox below then click the button in the center to change it (if possible)." 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="TimesNewRoman" FontSize="20" TextWrapping="Wrap" 
+                   Margin="0,125,0,0" Width="680" FontWeight="Bold" TextAlignment="Center"></TextBlock>
+        <RichTextBox x:Name="Input" HorizontalAlignment="Left" VerticalAlignment="Top" Height="200" Width="300" Margin="10,178,0,0"
+                     FontFamily="TimesNewRoman" FontSize="20"></RichTextBox>
+        <RichTextBox x:Name="Output" HorizontalAlignment="Right" VerticalAlignment="Top" Height="200" Width="300" Margin="0,178,10,0" 
+                     IsReadOnly="True" FontFamily="TimesNewRoman" FontSize="20" Background="#FFE6E6E6"></RichTextBox>
+        <Button x:Name="Change" HorizontalAlignment="Center" VerticalAlignment="Top" Content="->" 
+                Margin="0,178,0,0" Height="200" Width="70" FontFamily="TimesNewRoman" FontSize="20" Click="Change_Click"></Button>
+    </Grid>
+</Window>
