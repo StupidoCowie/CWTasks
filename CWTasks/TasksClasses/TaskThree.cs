@@ -14,25 +14,25 @@ namespace CWTasks.TasksClasses
         //Any values that fall out of that range must be rounded to the closest valid value.
         //Note: The answer should always be 6 characters long.
 
-        public string ConvertRGB(int r, int g, int b)
+        public string ConvertRGB(int red, int green, int blue)
         {
-            return $"{ToHex(r)}{ToHex(g)}{ToHex(b)}";
+            return $"{ToHex(red)}{ToHex(green)}{ToHex(blue)}";
         }
 
-        private static string ToHex(int n)
+        private static string ToHex(int value)
         {
             var result = "";
-            if (n < 0)
+            if (value < 0)
             { 
-                result = 0.ToString("X2");
+                result = "00";
             }
-            else if (n > 255) 
+            else if (value > 255) 
             {
-                result = 255.ToString("X2");
+                result = "FF";
             }
             else 
             {
-                result = n.ToString("X2");
+                result = value.ToString("X2");
             }
             return result;
         }

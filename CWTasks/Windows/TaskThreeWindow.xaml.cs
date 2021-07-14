@@ -23,7 +23,6 @@ namespace CWTasks.Windows
         private TaskThree _task;
         private int _red, _green, _blue;
         private string _color;
-        private Border _border;
         private Brush _brush;
         private BrushConverter _bc;
         public TaskThreeWindow()
@@ -31,7 +30,6 @@ namespace CWTasks.Windows
             InitializeComponent();
             _task = new TaskThree();
             _bc = new BrushConverter();
-            _border = new Border();
             _color = _task.ConvertRGB(Int32.Parse(Red.Text), Int32.Parse(Green.Text), Int32.Parse(Blue.Text));
             _brush = (Brush)_bc.ConvertFrom($"#{_color}");
             BorderBrush = _brush;
@@ -39,7 +37,16 @@ namespace CWTasks.Windows
 
         public void Convert_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (Int32.TryParse(Red.Text, out _red) && Int32.TryParse(Green.Text, out _green) && Int32.TryParse(Blue.Text, out _blue))
+            {
+                _color = _task.ConvertRGB(_red, _green, _blue);
+                _brush = (Brush)_bc.ConvertFrom($"#{_color}");
+                BorderBrush = _brush;
+            }
+            else
+            {
+                MessageBox.Show("Invalid color value", "Ooops...");
+            }
         }
 
         public void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
