@@ -22,6 +22,7 @@ namespace CWTasks.TasksClasses
                 if (!isThere.Contains(word[i]))
                 {
                     isThere.Add(word[i]);
+                    //change comment
                     result.Append("(");
                 }
                 else
