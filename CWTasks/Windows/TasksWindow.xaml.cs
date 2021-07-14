@@ -25,10 +25,16 @@ namespace CWTasks.Windows
             NewWindow.Show();
             Close();
         }
+        public void Task3_Click(object sender, RoutedEventArgs e)
+        {
+            var NewWindow = new TaskThreeWindow();
+            NewWindow.Show();
+            Close();
+        }
 
         public void QMark_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This app has been developed by BNYu\nCopyright © 2021");
+            MessageBox.Show("This app has been developed by BNYu\nCopyright © 2021", "About");
         }
     }
 }

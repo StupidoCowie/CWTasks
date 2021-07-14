@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using CWTasks.TasksClasses;
 
 namespace CWTasks.Windows
@@ -21,8 +22,17 @@ namespace CWTasks.Windows
 
         public void Encode_Click(object sender, RoutedEventArgs e)
         {
-            _word = Input.Text;
-            Output.Text = _task.DuplicateEncode(_word);
+            try
+            {
+                _word = Input.Text;
+                Output.Text = _task.DuplicateEncode(_word);
+            }
+            catch (Exception exp)
+            {
+                Input.Text = "Type something here!";
+                Output.Text = "Type something on top!";
+                MessageBox.Show(exp.Message, "Ooops...");
+            }
         }
 
         public void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)

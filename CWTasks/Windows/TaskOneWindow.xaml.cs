@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Documents;
 using CWTasks.TasksClasses;
 
@@ -24,18 +25,17 @@ namespace CWTasks.Windows
         {
             Output.Document.Blocks.Clear();
             _text = new TextRange(Input.Document.ContentStart, Input.Document.ContentEnd).Text.Replace("\n", "").Replace("\r", "");
-            if (_text.Length == 0)
+            try
             {
                 _text = _task.Maskify(_text);
-                Input.Document.Blocks.Clear();
-                Output.Document.Blocks.Clear();
-                Input.AppendText("Type something here!");
-                Output.AppendText("Type something in the left textbox!");
-                MessageBox.Show("There is no text!");
-            }
-            else
-            {
                 Output.AppendText(_text);
+            }
+            catch (Exception exp)
+            {
+                Input.Document.Blocks.Clear();
+                Input.AppendText("Type something here!");
+                Output.AppendText("Type something on the left!");
+                MessageBox.Show(exp.Message, "Ooops...");
             }
         }
 
