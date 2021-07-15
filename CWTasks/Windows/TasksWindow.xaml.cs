@@ -31,6 +31,12 @@ namespace CWTasks.Windows
             NewWindow.Show();
             Close();
         }
+        public void Task4_Click(object sender, RoutedEventArgs e)
+        {
+            var NewWindow = new TaskFourWindow();
+            NewWindow.Show();
+            Close();
+        }
 
         public void QMark_Click(object sender, RoutedEventArgs e)
         {

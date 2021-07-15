@@ -17,5 +17,7 @@
                 Height="30" Width="30" FontFamily="TimesNewRoman" FontSize="16" Click="Task2_Click"></Button>
         <Button x:Name="Task3" Content="#3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="80,10,0,0" 
                 Height="30" Width="30" FontFamily="TimesNewRoman" FontSize="16" Click="Task3_Click"></Button>
+        <Button x:Name="Task4" Content="#4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,10,0,0" 
+                Height="30" Width="30" FontFamily="TimesNewRoman" FontSize="16" Click="Task4_Click"></Button>
     </Grid>
 </Window>

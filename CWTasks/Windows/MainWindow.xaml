@@ -6,11 +6,14 @@
         xmlns:local="clr-namespace:CWTasks.Windows"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="CWTasks" Height="160" Width="420"
+        Title="CWTasks" Height="150" Width="420"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBlock x:Name="MainText" Text="Hello there! My name is Nikolay. And this is my solutions for CodeWars tasks. Click the button below to start this application." TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="TimesNewRoman" FontSize="20" TextAlignment="Center"></TextBlock>
-        <Button x:Name="StartButton" Content="Start" HorizontalAlignment="Center" Margin="0,77,0,0" VerticalAlignment="Top" FontFamily="TimesNewRoman" FontSize="20" Width="296" Click="StartButton_Click"/>
+        <TextBlock x:Name="MainText" Text="Hello there! My name is Nikolay. And this is my solutions for CodeWars tasks. Click the button below to start this application." 
+                   TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" 
+                   FontFamily="TimesNewRoman" FontSize="20" TextAlignment="Center"></TextBlock>
+        <Button x:Name="StartButton" Content="Start" Margin="62,0,62,10" FontFamily="TimesNewRoman" IsDefault="True"
+                FontSize="20" Click="StartButton_Click" Height="28" VerticalAlignment="Bottom"/>
 
     </Grid>
 </Window>

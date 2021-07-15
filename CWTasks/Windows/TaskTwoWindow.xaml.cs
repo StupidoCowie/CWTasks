@@ -9,6 +9,7 @@ namespace CWTasks.Windows
     /// </summary>
     public partial class TaskTwoWindow : Window
     {
+        private TasksWindow _taskWindow;
         private TaskTwo _task;
         private string _word;
         public TaskTwoWindow()
@@ -17,7 +18,6 @@ namespace CWTasks.Windows
             _task = new TaskTwo();
             _word = "Testing...";
             Input.Text = _word;
-            Output.Text = _task.DuplicateEncode(_word);
         }
 
         public void Encode_Click(object sender, RoutedEventArgs e)
@@ -37,8 +37,8 @@ namespace CWTasks.Windows
 
         public void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
         {
-            var NewWindow = new TasksWindow();
-            NewWindow.Show();
+            _taskWindow = new TasksWindow();
+            _taskWindow.Show();
             Close();
         }
     }

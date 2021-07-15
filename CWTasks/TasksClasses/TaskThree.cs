@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CWTasks.TasksClasses
+﻿namespace CWTasks.TasksClasses
 {
     class TaskThree
     {
@@ -13,28 +7,29 @@ namespace CWTasks.TasksClasses
         //will result in a hexadecimal representation being returned.Valid decimal values for RGB are 0 - 255. 
         //Any values that fall out of that range must be rounded to the closest valid value.
         //Note: The answer should always be 6 characters long.
+        private string _hexresult, _converted;
 
         public string ConvertRGB(int red, int green, int blue)
         {
-            return $"{ToHex(red)}{ToHex(green)}{ToHex(blue)}";
+            _converted = $"{ToHex(red)}{ToHex(green)}{ToHex(blue)}";
+            return _converted;
         }
 
-        private static string ToHex(int value)
+        private string ToHex(int value)
         {
-            var result = "";
             if (value < 0)
             { 
-                result = "00";
+                _hexresult = "00";
             }
-            else if (value > 255) 
+            else if (value > 255)
             {
-                result = "FF";
+                _hexresult = "FF";
             }
-            else 
+            else
             {
-                result = value.ToString("X2");
+                _hexresult = value.ToString("X2");
             }
-            return result;
+            return _hexresult;
         }
     }
 }

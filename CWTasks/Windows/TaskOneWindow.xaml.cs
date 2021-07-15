@@ -10,6 +10,7 @@ namespace CWTasks.Windows
     /// </summary>
     public partial class TaskOneWindow : Window
     {
+        private TasksWindow _taskWindow;
         private TaskOne _task;
         private string _text;
         public TaskOneWindow()
@@ -18,7 +19,6 @@ namespace CWTasks.Windows
             _task = new TaskOne();
             _text = "This is a test string. And it works as you can see!";
             Input.AppendText(_text);
-            Output.AppendText(_task.Maskify(_text));
         }
 
         public void Change_Click(object sender, RoutedEventArgs e)
@@ -41,8 +41,8 @@ namespace CWTasks.Windows
 
         public void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
         {
-            var NewWindow = new TasksWindow();
-            NewWindow.Show();
+            _taskWindow = new TasksWindow();
+            _taskWindow.Show();
             Close();
         }
     }

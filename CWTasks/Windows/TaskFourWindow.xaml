@@ -1,0 +1,34 @@
+﻿<Window x:Class="CWTasks.Windows.TaskFourWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CWTasks.Windows"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="TASK 4: SortArray" Height="275" Width="580">
+    <Grid>
+        <Button x:Name="ReturnToTaskWindow" Content="Back" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsCancel="True"
+                Margin="0,0,10,80" Height="30" Width="70" FontSize="16" FontFamily="TimesNewRoman" Click="ReturnToTaskWindow_Click"></Button>
+        <TextBlock x:Name="MainText" Text="You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions." TextAlignment="Center" TextWrapping="Wrap" FontFamily="TimesNewRoman" 
+                   FontSize="20" Margin="10,0,10,0" Height="75" VerticalAlignment="Top"></TextBlock>
+        <TextBlock x:Name="NotMainText" Text="Type amount of numbers at textbox below, click the button and get sorted odds in the random array!"
+                   HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" FontFamily="TimesNewRoman" 
+                   FontSize="20" Width="580" Margin="0,75,0,0" FontWeight="Bold" ></TextBlock>
+        <TextBox x:Name="Count" Text="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="70"
+                 Margin="10,0,0,80" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
+        <Button x:Name="GenarateAndSort" Content="Generate" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                Margin="85,0,0,80" Height="30" Width="80" FontSize="16" FontFamily="TimesNewRoman" Click="GenerateAndSort_Click" IsDefault="True"></Button>
+        <TextBlock x:Name="InputText" Text="Input:" VerticalAlignment="Bottom" FontFamily="TimesNewRoman" HorizontalAlignment="Left"
+                   Width="60" FontSize="20" Margin="10,0,0,45"></TextBlock>
+        <TextBox x:Name="Input"
+                 Margin="85,0,10,45" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center" 
+                 IsReadOnly="True" Background="#FFE6E6E6" Height="30" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="OutpuText" Text="Output:" VerticalAlignment="Bottom" FontFamily="TimesNewRoman" HorizontalAlignment="Left"
+                   Width="70" FontSize="20" Margin="10,0,0,10"></TextBlock>
+        <TextBox x:Name="Output"
+                 Margin="85,0,10,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center" 
+                 IsReadOnly="True" Background="#FFE6E6E6" Height="30" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>

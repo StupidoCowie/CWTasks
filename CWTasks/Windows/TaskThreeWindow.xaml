@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="RGB Convert" Height="300" Width="600"
+        Title="TASK 3: RGB Convert" Height="300" Width="600"
         BorderThickness="10"
         BorderBrush="Black">
     <Grid>
-        <Button x:Name="BackToTaskWindow" Content="Back" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+        <Button x:Name="BackToTaskWindow" Content="Back" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsCancel="True"
                 Margin="0,0,10,10" Height="30" Width="70" FontSize="16" FontFamily="TimesNewRoman" Click="ReturnToTaskWindow_Click"></Button>
         <TextBlock x:Name="MainText" Text="The rgb function is incomplete. Complete it so that passing in RGB decimal values will result in a hexadecimal representation being returned.Valid decimal values for RGB are 0 - 255. Any values that fall out of that range must be rounded to the closest valid value. Note: The answer should always be 6 characters long."
                    HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" FontFamily="TimesNewRoman" 
@@ -19,13 +19,15 @@
         <TextBlock x:Name="NotMainText" Text="Type numbers at textbox below, click the button and get a new border color!"
                    HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" FontFamily="TimesNewRoman" 
                    FontSize="20" Width="580" Margin="0,150,0,0" FontWeight="Bold" ></TextBlock>
-        <TextBox x:Name="Red" Text="255" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="125"
-                 Margin="10,0,0,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
-        <TextBox x:Name="Green" Text="255" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="125"
-                 Margin="140,0,0,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
-        <TextBox x:Name="Blue" Text="255" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="125"
-                 Margin="270,0,0,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
-        <Button x:Name="Convert" Content="Convert" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+        <TextBox x:Name="Output" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="95" IsReadOnly="True"
+                 Background="#FFE6E6E6" Margin="10,0,0,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
+        <TextBox x:Name="Red" Text="255" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="95"
+                 Margin="110,0,0,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
+        <TextBox x:Name="Green" Text="255" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="95"
+                 Margin="210,0,0,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
+        <TextBox x:Name="Blue" Text="255" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="95"
+                 Margin="310,0,0,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
+        <Button x:Name="Convert" Content="Convert" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsDefault="True"
                 Margin="0,0,85,10" Height="30" Width="70" FontSize="16" FontFamily="TimesNewRoman" Click="Convert_Click"></Button>
     </Grid>
 </Window>
