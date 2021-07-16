@@ -21,7 +21,7 @@ namespace CWTasks.Windows
             Input.AppendText(_text);
         }
 
-        public void Change_Click(object sender, RoutedEventArgs e)
+        private void Change_Click(object sender, RoutedEventArgs e)
         {
             Output.Document.Blocks.Clear();
             _text = new TextRange(Input.Document.ContentStart, Input.Document.ContentEnd).Text.Replace("\n", "").Replace("\r", "");
@@ -39,7 +39,7 @@ namespace CWTasks.Windows
             }
         }
 
-        public void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
+        private void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
         {
             _taskWindow = new TasksWindow();
             _taskWindow.Show();

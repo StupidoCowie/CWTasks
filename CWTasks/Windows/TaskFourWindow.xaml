@@ -18,17 +18,19 @@
                    FontSize="20" Width="580" Margin="0,75,0,0" FontWeight="Bold" ></TextBlock>
         <TextBox x:Name="Count" Text="10" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="70"
                  Margin="10,0,0,80" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center"></TextBox>
-        <Button x:Name="GenarateAndSort" Content="Generate" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+        <Button x:Name="GenerateAndSort" Content="Generate" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
                 Margin="85,0,0,80" Height="30" Width="80" FontSize="16" FontFamily="TimesNewRoman" Click="GenerateAndSort_Click" IsDefault="True"></Button>
+        <Button x:Name="Testing" Content="Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+                Margin="170,0,0,80" Height="30" Width="80" FontSize="16" FontFamily="TimesNewRoman" Click="Test_Click"></Button>
+        <TextBlock x:Name="TestCount" Text="0" VerticalAlignment="Bottom" FontFamily="TimesNewRoman" HorizontalAlignment="Left"
+                   Width="60" FontSize="20" Margin="260,0,0,82"></TextBlock>
         <TextBlock x:Name="InputText" Text="Input:" VerticalAlignment="Bottom" FontFamily="TimesNewRoman" HorizontalAlignment="Left"
                    Width="60" FontSize="20" Margin="10,0,0,45"></TextBlock>
-        <TextBox x:Name="Input"
-                 Margin="85,0,10,45" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center" 
+        <TextBox x:Name="Input" Margin="85,0,10,45" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center" 
                  IsReadOnly="True" Background="#FFE6E6E6" Height="30" VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="OutpuText" Text="Output:" VerticalAlignment="Bottom" FontFamily="TimesNewRoman" HorizontalAlignment="Left"
+        <TextBlock x:Name="OutputText" Text="Output:" VerticalAlignment="Bottom" FontFamily="TimesNewRoman" HorizontalAlignment="Left"
                    Width="70" FontSize="20" Margin="10,0,0,10"></TextBlock>
-        <TextBox x:Name="Output"
-                 Margin="85,0,10,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center" 
+        <TextBox x:Name="Output" Margin="85,0,10,10" FontSize="20" FontFamily="TimesNewRoman" TextAlignment="Center" 
                  IsReadOnly="True" Background="#FFE6E6E6" Height="30" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

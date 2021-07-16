@@ -7,6 +7,7 @@
         //will result in a hexadecimal representation being returned.Valid decimal values for RGB are 0 - 255. 
         //Any values that fall out of that range must be rounded to the closest valid value.
         //Note: The answer should always be 6 characters long.
+
         private string _hexresult, _converted;
 
         public string ConvertRGB(int red, int green, int blue)

@@ -20,7 +20,7 @@ namespace CWTasks.Windows
             Input.Text = _word;
         }
 
-        public void Encode_Click(object sender, RoutedEventArgs e)
+        private void Encode_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -35,7 +35,7 @@ namespace CWTasks.Windows
             }
         }
 
-        public void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
+        private void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
         {
             _taskWindow = new TasksWindow();
             _taskWindow.Show();

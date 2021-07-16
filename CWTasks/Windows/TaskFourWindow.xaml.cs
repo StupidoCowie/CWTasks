@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using CWTasks.TasksClasses;
 
 namespace CWTasks.Windows
@@ -23,32 +15,68 @@ namespace CWTasks.Windows
         private TasksWindow _taskWindow;
         private TaskFour _task;
         private int[] _input, _output;
-        private int _count;
+        private int _count, _test;
         private Random _random;
+        private CancellationTokenSource _cancel;
         public TaskFourWindow()
         {
             InitializeComponent();
             _random = new Random();
+            _task = new TaskFour();
+            _test = 0;
+            _cancel = new CancellationTokenSource();
         }
 
-        public void GenerateAndSort_Click(object sender, RoutedEventArgs e)
+        private async void GenerateAndSort_Click(object sender, RoutedEventArgs e)
         {
-            Input.Clear();
-            Output.Clear();
+            Input.Text = "Loading...";
+            Output.Text = "Loading...";
             if (int.TryParse(Count.Text, out _count) && _count > 0)
             {
-                _input = new int[_count];
-                _output = new int[_count];
-                for (int i = 0; i < _count; i++)
+                GenerateAndSort.IsEnabled = false;
+                await Task.Run(() =>
                 {
-                    _input[i] = _random.Next(0, 9);
-                    Input.Text += _input[i] + " ";
-                }
-                _output = _task.SortArray(_input);
-                foreach (int i in _output)
-                {
-                    Output.Text += i + " ";
-                }
+                    _input = new int[_count];
+                    _output = new int[_count];
+                    string TempString = "";
+                    for (int i = 0; i < _count; i++)
+                    {
+                        //try
+                        //{
+                        //    _cancel.Token.ThrowIfCancellationRequested();
+                        //}
+                        //catch (Exception exp)
+                        //{
+                        //    MessageBox.Show(exp.Message, "Warning");
+                        //}
+                        _input[i] = _random.Next(0, 9);
+                        TempString += $"{_input[i]} ";
+                    }
+                    Input.Dispatcher.Invoke(() =>
+                    {
+                        Input.Text = TempString;
+                        Output.Text = "Calculating...";
+                    });
+                    TempString = "";
+                    _output = _task.SortArray(_input);
+                    foreach (int i in _output)
+                    {
+                        //try
+                        //{
+                        //    _cancel.Token.ThrowIfCancellationRequested();
+                        //}
+                        //catch (Exception exp)
+                        //{
+                        //    MessageBox.Show(exp.Message, "Warning");
+                        //}
+                        TempString += $"{i} ";
+                    }
+                    Output.Dispatcher.Invoke(() =>
+                    {
+                        Output.Text = TempString;
+                    });
+                }, _cancel.Token);
+                GenerateAndSort.IsEnabled = true;
             }
             else
             {
@@ -56,10 +84,17 @@ namespace CWTasks.Windows
             }
         }
 
-        public void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
+        private void Test_Click(object sender, RoutedEventArgs e)
+        {
+            _test += 1;
+            TestCount.Text = _test.ToString();
+        }
+
+        private void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
         {
             _taskWindow = new TasksWindow();
             _taskWindow.Show();
+            _cancel.Cancel();
             Close();
         }
     }

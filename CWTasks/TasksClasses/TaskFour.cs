@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CWTasks.TasksClasses
 {
@@ -10,6 +6,7 @@ namespace CWTasks.TasksClasses
     {
         //Task 4:
         //You will be given an array of numbers.You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+
         private List<int> _index, _odds;
         public int[] SortArray(int[] array)
         {

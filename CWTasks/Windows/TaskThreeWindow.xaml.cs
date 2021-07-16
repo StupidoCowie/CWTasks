@@ -22,7 +22,7 @@ namespace CWTasks.Windows
             _bc = new BrushConverter();
         }
 
-        public void Convert_Click(object sender, RoutedEventArgs e)
+        private void Convert_Click(object sender, RoutedEventArgs e)
         {
             if (int.TryParse(Red.Text, out _red) && int.TryParse(Green.Text, out _green) && int.TryParse(Blue.Text, out _blue))
             {
@@ -37,7 +37,7 @@ namespace CWTasks.Windows
             }
         }
 
-        public void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
+        private void ReturnToTaskWindow_Click(object sender, RoutedEventArgs e)
         {
             _taskWindow = new TasksWindow();
             _taskWindow.Show();
