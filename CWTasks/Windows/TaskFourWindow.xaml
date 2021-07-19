@@ -22,6 +22,8 @@
                 Margin="85,0,0,80" Height="30" Width="80" FontSize="16" FontFamily="TimesNewRoman" Click="GenerateAndSort_Click" IsDefault="True"></Button>
         <Button x:Name="Testing" Content="Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" 
                 Margin="170,0,0,80" Height="30" Width="80" FontSize="16" FontFamily="TimesNewRoman" Click="Test_Click"></Button>
+        <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                Margin="0,0,85,80" Height="30" Width="70" FontSize="16" FontFamily="TimesNewRoman" Click="Cancel_Click"></Button>
         <TextBlock x:Name="TestCount" Text="0" VerticalAlignment="Bottom" FontFamily="TimesNewRoman" HorizontalAlignment="Left"
                    Width="60" FontSize="20" Margin="260,0,0,82"></TextBlock>
         <TextBlock x:Name="InputText" Text="Input:" VerticalAlignment="Bottom" FontFamily="TimesNewRoman" HorizontalAlignment="Left"
