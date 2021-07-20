@@ -38,6 +38,10 @@ namespace CWTasks.Windows
             Close();
         }
 
+        private void Quit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
         private void QMark_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("This app has been developed by BNYu\nCopyright © 2021", "About");

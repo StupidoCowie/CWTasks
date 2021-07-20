@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,6 +27,7 @@ namespace CWTasks.Windows
             _task = new TaskFour();
             _test = 0;
             _currentTaskStatus = TaskStatus.WaitingForActivation;
+            Cancel.IsEnabled = false;
         }
 
         private async void GenerateAndSort_Click(object sender, RoutedEventArgs e)
@@ -34,56 +36,83 @@ namespace CWTasks.Windows
             Output.Text = "Loading...";
             if (int.TryParse(Count.Text, out _count) && _count > 0)
             {
-                _cancel = new CancellationTokenSource();
-                GenerateAndSort.IsEnabled = false;
-                Task currentTask = Task.Run(() =>
+                try
                 {
-                    _currentTaskStatus = TaskStatus.Running;
+                    GenerateAndSort.IsEnabled = false;
+                    Cancel.IsEnabled = true;
                     _input = new int[_count];
                     _output = new int[_count];
-                    string TempString = "";
-                    for (int i = 0; i < _count; i++)
+                    StringBuilder tempSB = new StringBuilder();
+
+                    _cancel = new CancellationTokenSource();
+                    _currentTaskStatus = TaskStatus.Running;
+                    await Task.Run(() =>
                     {
-                        if (_cancel.IsCancellationRequested)
-                        {
-                            break;
-                        }
-                        _input[i] = _random.Next(0, 9);
-                        TempString += $"{_input[i]} ";
-                    }
-                    if (!_cancel.IsCancellationRequested)
-                    {
-                        Input.Dispatcher.Invoke(() =>
-                        {
-                            Input.Text = TempString;
-                            Output.Text = "Calculating...";
-                        });
-                    }
-                    TempString = "";
-                    _output = _task.SortArray(_input);
-                    foreach (int i in _output)
-                    {
-                        if (_cancel.IsCancellationRequested)
-                        {
-                            break;
-                        }
-                        TempString += $"{i} ";
-                    }
-                    if (!_cancel.IsCancellationRequested)
-                    {
-                        Output.Dispatcher.Invoke(() =>
-                        {
-                            Output.Text = TempString;
-                        });
-                    }
-                }, _cancel.Token);
-                await currentTask;
-                _currentTaskStatus = currentTask.Status;
-                GenerateAndSort.IsEnabled = true;
+                        MainJobToDo(Input, _cancel.Token, true);
+                        MainJobToDo(Output, _cancel.Token, false);
+                    }, _cancel.Token);
+                    _currentTaskStatus = TaskStatus.RanToCompletion;
+
+                    GenerateAndSort.IsEnabled = true;
+                    Cancel.IsEnabled = false;
+                }
+                catch
+                {
+                    Input.Text = "Error...";
+                    Output.Text = "Error...";
+                    GenerateAndSort.IsEnabled = true;
+                    Cancel.IsEnabled = false;
+                    MessageBox.Show("The number is too big", "Error!");
+                }
             }
             else
             {
-                MessageBox.Show("Amount of numbers isn't number itself or it is below 0", "Ooops...");
+                MessageBox.Show("Amount of numbers isn't a number itself or it is below 0", "Ooops...");
+            }
+        }
+
+        private int[] MainJobToDo(TextBox textBox, CancellationToken token, bool isInput)
+        {
+            int[] result = new int[_count];
+            if (!isInput)
+            {
+                result = _task.SortArray(_input);
+            }
+            StringBuilder tempSB = new StringBuilder();
+            for (int i = 0; i <_count; i++)
+            {
+                if (token.IsCancellationRequested)
+                {
+                    break;
+                }
+                if (isInput)
+                {
+                    result[i] = _random.Next(0, 9);
+                }
+                tempSB.Append(result[i]);
+            }
+            if (!token.IsCancellationRequested)
+            {
+                //Need to read about bindings. Maybe try to save result in the file if user wants it. There are several options here.
+                textBox.Dispatcher.Invoke(() =>
+                {
+                    if (tempSB.Length > 100000)
+                    {
+                        textBox.Text = tempSB.ToString(0, 100000);
+                    }
+                    else
+                    {
+                        textBox.Text = tempSB.ToString();
+                    }
+                });
+            }
+            if (isInput)
+            {
+                return _input = result;
+            }
+            else
+            {
+                return _output = result;
             }
         }
 
@@ -101,6 +130,7 @@ namespace CWTasks.Windows
                 Output.Text = "Cancelled";
                 MessageBox.Show("Current task has been cancelled", "Info");
                 GenerateAndSort.IsEnabled = true;
+                Cancel.IsEnabled = false;
             }
             else
             {

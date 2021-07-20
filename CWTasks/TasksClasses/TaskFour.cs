@@ -7,23 +7,24 @@ namespace CWTasks.TasksClasses
         //Task 4:
         //You will be given an array of numbers.You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
 
-        private List<int> _index, _odds;
+        private List<int> _indices, _oddNumbers;
         public int[] SortArray(int[] array)
         {
-            _index = new List<int>();
-            _odds = new List<int>();
+            _indices = new List<int>();
+            _oddNumbers = new List<int>();
             for (int i = 0; i < array.Length; i++)
             {
-                if (array[i] % 2 != 0)
+                var element = array[i];
+                if (element % 2 != 0)
                 {
-                    _index.Add(i);
-                    _odds.Add(array[i]);
+                    _indices.Add(i);
+                    _oddNumbers.Add(element);
                 }
             }
-            _odds.Sort();
-            for (int i = 0; i < _index.Count; i++)
+            _oddNumbers.Sort();
+            for (int i = 0; i < _indices.Count; i++)
             {
-                array[_index[i]] = _odds[i];
+                array[_indices[i]] = _oddNumbers[i];
             }
 
             return array;
