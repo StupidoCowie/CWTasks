@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -20,6 +21,9 @@ namespace CWTasks.Windows
         private Random _random;
         private CancellationTokenSource _cancel;
         private TaskStatus _currentTaskStatus;
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
         public TaskFourWindow()
         {
             InitializeComponent();
@@ -79,17 +83,28 @@ namespace CWTasks.Windows
                 result = _task.SortArray(_input);
             }
             StringBuilder tempSB = new StringBuilder();
-            for (int i = 0; i <_count; i++)
+            if (isInput)
             {
-                if (token.IsCancellationRequested)
+                for (int i = 0; i < _count; i++)
                 {
-                    break;
-                }
-                if (isInput)
-                {
+                    if (token.IsCancellationRequested)
+                    {
+                        break;
+                    }
                     result[i] = _random.Next(0, 9);
+                    tempSB.Append(result[i]);
                 }
-                tempSB.Append(result[i]);
+            }
+            else
+            {
+                for (int i = 0; i < _count; i++)
+                {
+                    if (token.IsCancellationRequested)
+                    {
+                        break;
+                    }
+                    tempSB.Append(result[i]);
+                }
             }
             if (!token.IsCancellationRequested)
             {
