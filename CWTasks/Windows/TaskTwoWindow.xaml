@@ -10,18 +10,18 @@
         Title="TASK 2: Duplicate Encode" Height="270" Width="700">
     <Grid>
         <Button x:Name="BackToTaskWindow" Content="Back" HorizontalAlignment="Right" VerticalAlignment="Bottom" IsCancel="True"
-                Margin="0,0,10,10" Height="30" Width="70" FontSize="16" FontFamily="TimesNewRoman" Click="ReturnToTaskWindow_Click"></Button>
+                Margin="0,0,10,10" Height="30" Width="70" FontSize="16" FontFamily="TimesNewRoman" Click="ReturnToTaskWindow_Click"/>
         <TextBlock x:Name="MainText" Text="The goal of this exercise is to convert a string to a new string where each character in the new string is '(' if that character appears only once in the original string, or ')' if that character appears more than once in the original string. Ignore capitalization when determining if a character is a duplicate."
                    HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" TextWrapping="Wrap" FontFamily="TimesNewRoman" 
-                   FontSize="20" Height="120" Width="700"></TextBlock>
+                   FontSize="20" Height="120" Width="700"/>
         <TextBlock x:Name="InputText" Text="Type some words in the left textbox below then click the button '->' to encode it (if possible)." 
                    HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="TimesNewRoman" FontSize="20" TextWrapping="Wrap" 
-                   Margin="0,100,0,0" Width="680" FontWeight="Bold" TextAlignment="Center"></TextBlock>
+                   Margin="0,100,0,0" Width="680" FontWeight="Bold" TextAlignment="Center"/>
         <TextBox x:Name="Input" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="590"
-                 Margin="10,0,0,45" FontSize="20" FontFamily="TimesNewRoman"></TextBox>
+                 Margin="10,0,0,45" FontSize="20" FontFamily="TimesNewRoman"/>
         <TextBox x:Name="Output" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="30" Width="590"
-                 Margin="10,0,10,10" FontSize="20" FontFamily="TimesNewRoman" IsReadOnly="True" Background="#FFE6E6E6"></TextBox>
+                 Margin="10,0,10,10" FontSize="20" FontFamily="TimesNewRoman" IsReadOnly="True" Background="#FFE6E6E6"/>
         <Button x:Name="Encode" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="->" IsDefault="True"
-                Margin="0,0,10,45" Height="30" Width="70" FontFamily="TimesNewRoman" FontSize="20" Click="Encode_Click"></Button>
+                Margin="0,0,10,45" Height="30" Width="70" FontFamily="TimesNewRoman" FontSize="20" Click="Encode_Click"/>
     </Grid>
 </Window>

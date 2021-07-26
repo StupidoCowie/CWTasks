@@ -111,9 +111,13 @@ namespace CWTasks.Windows
                 //Need to read about bindings. Maybe try to save result in the file if user wants it. There are several options here.
                 textBox.Dispatcher.Invoke(() =>
                 {
-                    if (tempSB.Length > 100000)
+                    if (tempSB.Length > 1000)
                     {
-                        textBox.Text = tempSB.ToString(0, 100000);
+                        if (isInput)
+                        {
+                            MessageBox.Show("The number arrays is too long. First 1000 elements have been shown.\nP.S. This is not a final solution yet.", "Warning");
+                        }
+                        textBox.Text = tempSB.ToString(0, 1000);
                     }
                     else
                     {

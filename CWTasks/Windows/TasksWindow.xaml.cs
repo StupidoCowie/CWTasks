@@ -14,26 +14,35 @@ namespace CWTasks.Windows
 
         private void Task1_Click(object sender, RoutedEventArgs e)
         {
-            var NewWindow = new TaskOneWindow();
+            TaskOneWindow NewWindow = new TaskOneWindow();
             NewWindow.Show();
             Close();
         }
 
         private void Task2_Click(object sender, RoutedEventArgs e)
         {
-            var NewWindow = new TaskTwoWindow();
+            TaskTwoWindow NewWindow = new TaskTwoWindow();
             NewWindow.Show();
             Close();
         }
+
         private void Task3_Click(object sender, RoutedEventArgs e)
         {
-            var NewWindow = new TaskThreeWindow();
+            TaskThreeWindow NewWindow = new TaskThreeWindow();
             NewWindow.Show();
             Close();
         }
+
         private void Task4_Click(object sender, RoutedEventArgs e)
         {
-            var NewWindow = new TaskFourWindow();
+            TaskFourWindow NewWindow = new TaskFourWindow();
+            NewWindow.Show();
+            Close();
+        }
+
+        private void Task5_Click(object sender, RoutedEventArgs e)
+        {
+            TaskFiveWindow NewWindow = new TaskFiveWindow();
             NewWindow.Show();
             Close();
         }
@@ -42,9 +51,10 @@ namespace CWTasks.Windows
         {
             Close();
         }
+
         private void QMark_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("This app has been developed by BNYu\nCopyright © 2021", "About");
+            MessageBox.Show("This app has been developed by B.N.Yu.\nCopyright © 2021", "About");
         }
     }
 }

@@ -22,7 +22,7 @@
         <Button x:Name="Task4" Content="#4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="115,10,0,0" 
                 Height="30" Width="30" FontFamily="TimesNewRoman" FontSize="16" Click="Task4_Click"/>
         <Button x:Name="Task5" Content="#5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,10,0,0" 
-                Height="30" Width="30" FontFamily="TimesNewRoman" FontSize="16" IsEnabled="False"/>
+                Height="30" Width="30" FontFamily="TimesNewRoman" FontSize="16" Click="Task5_Click"/>
         <TextBlock x:Name="SelectText" Text="Select one of the tasks above, read and try out how it works!" TextWrapping="Wrap"
                    VerticalAlignment="Top" Margin="10,45,80,0" FontFamily="TimesNewRoman" FontSize="14"/>
         <TextBlock x:Name="TBC" Text="Work in progress..." TextWrapping="Wrap" FontWeight="Bold"

@@ -11,7 +11,7 @@
     <Grid>
         <TextBlock x:Name="MainText" Text="Hello there! My name is Nikolay. And this is my solutions for CodeWars tasks. Click the button below to start this application." 
                    TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Top" 
-                   FontFamily="TimesNewRoman" FontSize="20" TextAlignment="Center"></TextBlock>
+                   FontFamily="TimesNewRoman" FontSize="20" TextAlignment="Center"/>
         <Button x:Name="StartButton" Content="Start" Margin="62,0,62,10" FontFamily="TimesNewRoman" IsDefault="True"
                 FontSize="20" Click="StartButton_Click" Height="28" VerticalAlignment="Bottom"/>
 
